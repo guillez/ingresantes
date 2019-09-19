@@ -62,7 +62,7 @@ class BasicPreInscripcionController extends Controller
     	$sede = DB::connection('alumnos')->table('sedes')->where('idsede' , '=', $request['fk_sede_id'])->first();
 		$nombresede = $sede->nombre;
 		
-        Mail::send('emails.preinscripcion', ['pre' => $pre, 'carrera' => $nombrecarrera, 'ciudad' => $nombreciudad, 'estudioprevio' =>$estudiosprevios[$request['fk_estudioprevio_id']], 'perteneceucu' => $perteneceucu['perteneceucu'], 'sede' => $nombresede], function ($message)
+        Mail::send('emails.preinscripcion', ['pre' => $pre, 'carrera' => $nombrecarrera, 'ciudad' => $nombreciudad, 'estudioprevio' =>$estudiosprevios[$request['fk_estudioprevio_id']], 'perteneceucu' => $perteneceucu[$request['perteneceucu']], 'sede' => $nombresede], function ($message)
                 {
                 	$my_destination = array('udrizardm@gmail.com', 'informatica@ucu.edu.ar');
 

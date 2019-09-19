@@ -24,6 +24,7 @@
     'id'=>'formIns',
     'name'=>'formIns'       
 ]) }}
+    {!! Form::hidden('estado', 0) !!}
     <div class="wrapper">
     <div class="panel panel-default">
         <div class="panel-heading" align="center">

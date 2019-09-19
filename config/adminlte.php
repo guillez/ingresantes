@@ -154,12 +154,12 @@ return [
         ],        
         ['header' => 'USUARIO'],
         [
-            'text' => 'profile',
+            'text' => 'Perfil',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'change_password',
+            'text' => 'Cambiar Password',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
