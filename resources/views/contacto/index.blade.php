@@ -25,7 +25,7 @@
             <th width="30%">Apellido</th>
             <th width="30%">Nombre</th>
             <th>Carrera</th>
-            <th>Sede</th>            
+            <th>Consulta</th>
             <th>Acciones</th>
         </thead>
     </table>
@@ -48,7 +48,7 @@ $(function() {
             { data: 'apellido', name: 'apellido' },
             { data: 'nombre', name: 'nombre' },
             { data: 'carrera', name: 'carrera' },
-            { data: 'sede', name: 'sede' },
+            { data: 'consulta', name: 'consulta' },
             { data: 'action', name: 'action', orderable: false, searchable: false},
         ]
     });

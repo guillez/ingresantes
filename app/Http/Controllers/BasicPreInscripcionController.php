@@ -187,7 +187,7 @@ class BasicPreInscripcionController extends Controller
         $estudiosprevios = array('1' => 'Secundario incompleto', '2' => 'Secundario completo', '3' => 'Terciario incompleto', '4' => 'Terciario completo', '5' => 'Universitario incompleto', '6' => 'Universitario completo', '7' => 'Especialización/Maestría/Doctorado' );
         $perteneceucu = array('0' => 'Si', '1' => 'No');
 
-        return view('preinscripcion.show', ['preinscripcion' => $preinscripcion, 'ciudad' => $nombreciudad, 'perteneceucu' => $perteneceucu[$preinscripcion->fk_estudioprevio_id], 'estudiosprevios' => $estudiosprevios[$preinscripcion->fk_estudioprevio_id], 'carrera' => $nombrecarrera, 'sede' => $nombresede]);
+        return view('preinscripcion.show', ['preinscripcion' => $preinscripcion, 'ciudad' => $nombreciudad, 'perteneceucu' => $perteneceucu[$preinscripcion->perteneceucu], 'estudiosprevios' => $estudiosprevios[$preinscripcion->fk_estudioprevio_id], 'carrera' => $nombrecarrera, 'sede' => $nombresede]);
     }  
 
     public function getSedes(Request $request, $id){

@@ -1,16 +1,16 @@
 @extends('adminlte::page')
 
-@section('title','Mostrar Pre-inscripción')
-@section('content_header','Mostrar Pre-inscripción')
+@section('title','Mostrar Contacto')
+@section('content_header','Mostrar Contacto')
 
 @section('content')
 	@include('alerts.success')
 	@include('alerts.errors')
 
-		{!! Form::model($preinscripcion, [
+		{!! Form::model($contacto, [
 			'method' => 'PATCH',
 			'class' => 'ui-form',
-			'route' => ['preinscripcion.update', $preinscripcion->id],
+			'route' => ['contacto.update', $contacto->id],
 		]) !!}
 		<input type="hidden" name="_token" value="{{ csrf_token() }}">
 		
@@ -18,27 +18,15 @@
             <h3 class="panel-title">INFORMACIÓN PERSONAL</h3>
         </div>
         <div class="panel-body">
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-6">
             {!! Form::label('nombre', 'Nombre:', ['class' => 'control-label']) !!}            
             {!! Form::text('nombre', null, ['class' => 'form-control']) !!}
             </div>
 
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-6">
             {!! Form::label('apellido', 'Apellido:', ['class' => 'control-label']) !!}
             {!! Form::text('apellido', null, ['class' => 'form-control']) !!}
-            </div>
-
-            <div class="form-group col-md-3">
-            {!! Form::label('fechanacimiento', 'Fecha de nacimiento:', ['class' => 'control-label ']) !!}
-                <div class="input-group date">
-                {!! Form::text('fechanacimiento', Carbon\Carbon::parse($preinscripcion->fechanacimiento)->format('d-m-Y'), ['id' => 'datepicker', 'class' => 'form-control datepicker']) !!}<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                </div>
-            </div> 
-
-            <div class="form-group col-md-3">
-            {!! Form::label('dni', 'Número de documento:', ['class' => 'control-label']) !!}
-            {!! Form::text('dni',  null, ['class' => 'form-control']) !!}
-            </div>                 
+            </div>              
         </div>
         <div class="panel-heading">
             <h3 class="panel-title">INFORMACIÓN DE CONTACTO</h3>
@@ -70,22 +58,17 @@
             <h3 class="panel-title">INFORMACIÓN SOBRE LUGAR</h3>
         </div>    
         <div class="panel-body">
-            <div class="form-group col-md-3">
-            {!! Form::label('direccion', 'Dirección:', ['class' => 'control-label']) !!}            
-            {!! Form::text('direccion', null, ['class' => 'form-control']) !!}
-            </div>
-
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-4">
             {!! Form::label('fk_pais_id', 'País:', ['class' => 'control-label']) !!} 
             {!! Form::select('fk_pais_id',$paises,null,['id'=>'fk_pais_id', 'class' => 'form-control']) !!}           
             </div>
 
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-4">
             {!! Form::label('fk_provincia_id', 'Provincia:', ['class' => 'control-label']) !!} 
             {!! Form::select('fk_provincia_id',$provincias,null,['id'=>'fk_provincia_id', 'class' => 'form-control']) !!}           
             </div>
 
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-4">
             {!! Form::label('fk_ciudad_id', 'Ciudad:', ['class' => 'control-label']) !!} 
             {!! Form::select('fk_ciudad_id',$ciudades,null,['id'=>'fk_ciudad_id', 'class' => 'form-control']) !!}           
             </div>            
@@ -94,24 +77,14 @@
             <h3 class="panel-title">INFORMACIÓN ACADÉMICA</h3>
         </div>    
         <div class="panel-body">
-            <div class="form-group col-md-3">
+            <div class="form-group col-md-12">
             {!! Form::label('fk_planestudio_id', 'Carrera de interés:', ['class' => 'control-label']) !!} 
             {!! Form::select('fk_planestudio_id',$carreras,null,['id'=>'fk_planestudio_id', 'class' => 'form-control']) !!}           
             </div>
 
-            <div class="form-group col-md-3">
-            {!! Form::label('fk_estudioprevio_id', 'Estudios previos:', ['class' => 'control-label']) !!}
-            {!! Form::select('fk_estudioprevio_id',$estudiosprevios,null,['id'=>'fk_estudioprevio_id', 'class' => 'form-control']) !!}   
-            </div> 
-            
-            <div class="form-group col-md-3">
-            {!! Form::label('perteneceucu', '¿Pertenece a la comunidad UCU?:', ['class' => 'control-label']) !!}
-            {!! Form::select('perteneceucu',$perteneceucu,null,['class' => 'form-control']) !!} 
-            </div> 
-
-            <div class="form-group col-md-3">
-            {!! Form::label('fk_sede_id', 'Sede de interés:', ['class' => 'control-label']) !!}
-            {!! Form::select('fk_sede_id',$sedes,null,['id'=>'fk_sede_id', 'class' => 'form-control']) !!} 
+            <div class="form-group col-md-12">
+            {!! Form::label('consulta', 'Consulta:', ['class' => 'control-label']) !!} 
+            {!! Form::textarea('consulta', null, ['id'=>'consulta', 'class'=>'form-control', 'rows' => 2, 'cols' => 40]) !!} 
             </div> 
         </div>
 

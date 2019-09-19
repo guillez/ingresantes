@@ -11,29 +11,27 @@
         <h3 class="panel-title">INFORMACIÓN PERSONAL</h3>
         </div>
         <div class="panel-body">    
-			<div class="form-group col-md-6"><strong>Nombre: </strong> {{ $preinscripcion->nombre }}</div>
-			<div class="form-group col-md-6"><strong>Apellido: </strong> {{ $preinscripcion->apellido }}</div>	
-			<div class="form-group col-md-6"><strong>Fecha de nacimiento: </strong> {{ $preinscripcion->fechanacimiento }}</div>					
-			<div class="form-group col-md-6"><strong>Nro. documento: </strong> {{ $preinscripcion->dni }}</div>										
+			<div class="form-group col-md-6"><strong>Nombre: </strong> {{ $contacto->nombre }}</div>
+			<div class="form-group col-md-6"><strong>Apellido: </strong> {{ $contacto->apellido }}</div>										
 		</div>
 
         <div class="panel-heading">
         <h3 class="panel-title">INFORMACIÓN DE CONTACTO</h3>
         </div>
         <div class="panel-body">    
-			<div class="form-group col-md-6"><strong>E-mail: </strong> {{ $preinscripcion->email }}</div>
+			<div class="form-group col-md-6"><strong>E-mail: </strong> {{ $contacto->email }}</div>
 			<div class="form-group col-md-3"><strong>Telefono: </strong> 
-			@if ($preinscripcion->telefonofijocar != 0)
-				{{ $preinscripcion->telefonofijocar }}-{{ $preinscripcion->telefonofijonum }}
+			@if ($contacto->telefonofijocar != 0)
+				{{ $contacto->telefonofijocar }}-{{ $contacto->telefonofijonum }}
 			@else
-				{{ $preinscripcion->telefonofijonum }}
+				{{ $contacto->telefonofijonum }}
 			@endif
 			</div>
 			<div class="form-group col-md-3"><strong>Celular: </strong> 
-			@if ($preinscripcion->celularcar != 0)
-				{{ $preinscripcion->celularcar }}-{{ $preinscripcion->celularnum }}
+			@if ($contacto->celularcar != 0)
+				{{ $contacto->celularcar }}-{{ $contacto->celularnum }}
 			@else
-				{{ $preinscripcion->celularnum }}
+				{{ $contacto->celularnum }}
 			@endif
 			</div>
 		</div>	
@@ -42,7 +40,7 @@
         <h3 class="panel-title">INFORMACIÓN SOBRE LUGAR</h3>
         </div>
         <div class="panel-body">    
-			<div class="form-group col-md-6"><strong>Dirección: </strong> {{ $preinscripcion->direccion }}</div>	
+			<div class="form-group col-md-6"><strong>Dirección: </strong> {{ $contacto->direccion }}</div>	
 			<div class="form-group col-md-6"><strong>Ciudad: </strong> {{ $ciudad }}</div>	
 		</div>		
 
@@ -50,14 +48,12 @@
         <h3 class="panel-title">INFORMACIÓN ACADÉMICA</h3>
         </div>
         <div class="panel-body">    
-			<div class="form-group col-md-6"><strong>Carrera de interés: </strong> {{ $carrera }}</div>	
-			<div class="form-group col-md-6"><strong>Estudios previos: </strong> {{ $estudiosprevios }}</div>
-			<div class="form-group col-md-6"><strong>¿Pertenece a la comunidad de la UCU?: </strong> {{ $perteneceucu }}</div>	
-			<div class="form-group col-md-6"><strong>Sede de interés: </strong> {{ $sede }}</div>								
-		</div>					
+			<div class="form-group col-md-12"><strong>Carrera de interés: </strong> {{ $carrera }}</div>								  
+			<div class="form-group col-md-12"><strong>Consulta: </strong> {{ $contacto->consulta }}</div>								
+		</div>							
 	</div>
 
-	{{ Form::model($preinscripcion, array('action' => array('BasicPreInscripcionController@update', $preinscripcion->id), 'method' => 'delete', 'class' => 'delete')) }}
+	{{ Form::model($contacto, array('action' => array('BasicContactoController@update', $contacto->id), 'method' => 'delete', 'class' => 'delete')) }}
 	<div class="form-group col-md-12" align="center">
 	{!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Eliminar', ['type' => 'submit', 'class' => 'btn btn-danger', 'data-toggle' => 'confirmation', 'data-title' => 'Esta seguro?', 'autocomplete' => 'off']) !!}
 	</div>
