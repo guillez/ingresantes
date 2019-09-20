@@ -163,19 +163,22 @@ $(document).ready(function() {
             $("#fk_sede_id").append(`<option value=${element.idsede}> ${element.nombre} </option>`);
         });
     });    
-
+    
+    $('#fk_pais_id').val(1);
     $.get('../../preinscripcion/getprovincias/'+$("#fk_pais_id").val(), function(res, sta){
         $("#fk_provincia_id").empty();      
         res.forEach(element => {
             $("#fk_provincia_id").append(`<option value=${element.idprovincia}> ${element.descripcion} </option>`);
         });
+        $('#fk_provincia_id').val(5);
         $.get('../../preinscripcion/getciudades/'+$("#fk_provincia_id").val(), function(res, sta){
             $("#fk_ciudad_id").empty();      
             res.forEach(element => {
                 $("#fk_ciudad_id").append(`<option value=${element.idciudad}> ${element.descripcion} </option>`);
             });
+            $('#fk_ciudad_id').val(734);                   
         });        
-    });        
+    }); 
 });
 </script>
 @endsection
