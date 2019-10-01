@@ -83,7 +83,7 @@ class BasicPreInscripcionController extends Controller
 	    	->join('carreras_sede', 'carreras.idcarrera', '=', 'carreras_sede.idcarrera')
 			->where('planes_estudios.idestadoplan' , '=', 2)
 			->where('carreras.idestadocarrera' , '=', 1)
-			->whereNotIn('carreras.idtipocarrera', [0, 1, 2, 5, 6, 7])
+			->whereIn('carreras.idtipocarrera', [3, 4, 7, 8, 9, 10, 11, 12])
 			->orderBy('carreras.nombre', 'ASC')
 			->groupBy('carreras.idcarrera')
 			->pluck('carreras.nombre', 'planes_estudios.idplanestudio');
@@ -127,7 +127,7 @@ class BasicPreInscripcionController extends Controller
             ->join('carreras_sede', 'carreras.idcarrera', '=', 'carreras_sede.idcarrera')
             ->where('planes_estudios.idestadoplan' , '=', 2)
             ->where('carreras.idestadocarrera' , '=', 1)
-            ->whereNotIn('carreras.idtipocarrera', [0, 1, 2, 5, 6, 7])
+            ->whereIn('carreras.idtipocarrera', [3, 4, 7, 8, 9, 10, 11, 12])
             ->orderBy('carreras.nombre', 'ASC')
             ->groupBy('carreras.idcarrera')
             ->pluck('carreras.nombre', 'planes_estudios.idplanestudio');

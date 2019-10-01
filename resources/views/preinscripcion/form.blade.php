@@ -16,7 +16,12 @@
 ][config('adminlte.layout')] : '') . (config('adminlte.collapse_sidebar') ? ' sidebar-collapse ' : ''))
 
 @section('content')
-
+<table width="100%" class="table">
+    <tr>
+        <td align="center">
+            <table width="1200px">
+                <tr>
+                    <td>
 {{ Form::open([
     'route' => 'preinscripcion.store',
     'class' => 'ui-form',
@@ -138,15 +143,67 @@
 
         <div class="panel-body">
             <div class="form-group col-md-12" align="center">  
-                <button type="submit" name="action" value="save" class="btn btn-warning">Enviar</button>
+                <button type="submit" name="action" value="save" class="button btn btn-warning">Enviar</button>
             </div>   
             <div class="form-group col-md-12" align="center">Se enviará una copia de tus respuestas por correo electrónico a la dirección de e-mail que has proporcionado en el presente formulario.</div>               
         </div>    
     </div>
     </div>
 {{ Form::close() }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 class="title">SEDES Y CENTROS</h2>   
+                    </td>
+                </tr>                
+                <tr>
+                    <td>
+                        <p><img src="http://www.ucu.edu.ar/images/banners/MasInfo_Reorganizado.png" alt=""></p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
 @endsection
 @section('adminlte_js')
+<style type="text/css"> 
+.panel-body {
+    background-color: rgba(195, 195, 195, 1) !important;
+}    
+.button {
+    border-radius: 5px;
+    padding: 11px 15px;
+    color: #ffffff;
+    font-size: 14px;
+    background-color: #eed938;
+    border-color: #fff;
+}
+
+.form-control {
+    text-align: left;
+    color: #333333;
+    background-color: #eeeeee;
+    border-color: #eed938;
+    border-radius: 5px;
+    font-size: 12px;
+}
+
+.skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
+   background-color: #fff !important;
+}    
+.table {
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+}    
+.title {
+    background: #9d9d9d !important;
+    color: #ffffff;
+    text-shadow: none;
+    padding: 13px 15px;
+}
+</style>
 <script>
 $("#datepicker").datepicker({
     format: "dd-mm-yyyy",
